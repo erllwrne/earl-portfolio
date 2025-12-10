@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: earl-portfolio
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn portfolio_site.wsgi:application"
+    plan: free
