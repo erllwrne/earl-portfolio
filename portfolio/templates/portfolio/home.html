@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ profile.name }}'s Portfolio</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header / Hero -->
+<header>
+    <div class="hero-content">
+        {% if profile.profile_pic %}
+            <img src="{{ profile.profile_pic.url }}" alt="{{ profile.name }}" class="profile-pic">
+        {% endif %}
+        <h1>{{ profile.name }}</h1>
+        <p>{{ profile.description }}</p>
+    </div>
+</header>
+
+<!-- About Section -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>{{ profile.description }}</p>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="cards-container">
+        <div class="skill-card">Python / Java</div>
+        <div class="skill-card">Hardware Troubleshooting</div>
+        <div class="skill-card">Electronics</div>
+        <div class="skill-card">Sound Engineering</div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="cards-container">
+        <div class="project-card">
+            <h3>Portfolio in Object Oriented</h3>
+            <p>My personal portfolio built with Django and HTML/CSS.</p>
+        </div>
+        <div class="project-card">
+            <h3>Audio System Setup</h3>
+            <p>Preffered in Multi-events.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:{{ profile.email }}">{{ profile.email }}</a></p>
+    <p>Phone: {{ profile.phone }}</p>
+</section>
+
+</body>
+</html>
